@@ -1,0 +1,147 @@
+19:13:54 INFO  : Registering command handlers for SDK TCF services
+19:13:55 INFO  : Launching XSCT server: xsct.bat -interactive E:\FPGA_Test\3_Study\mz7035_vdma_ov7725_20200320\project_1\project_1.sdk\temp_xsdb_launch_script.tcl
+19:13:59 INFO  : XSCT server has started successfully.
+19:13:59 INFO  : Successfully done setting XSCT server connection channel  
+19:14:02 INFO  : Successfully done setting SDK workspace  
+19:14:02 INFO  : Processing command line option -hwspec E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper.hdf.
+19:23:01 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:23:02 INFO  : Jtag cable 'Digilent Zed 210248446130' is selected.
+19:23:02 INFO  : 'jtag frequency' command is executed.
+19:23:02 INFO  : Sourcing of 'E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:23:02 INFO  : Context for 'APU' is selected.
+19:23:02 INFO  : System reset is completed.
+19:23:05 INFO  : 'after 3000' command is executed.
+19:23:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248446130" && level==0} -index 1' command is executed.
+19:23:07 INFO  : FPGA configured successfully with bitstream "E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+19:23:07 INFO  : Context for 'APU' is selected.
+19:23:07 INFO  : Hardware design information is loaded from 'E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+19:23:07 INFO  : 'configparams force-mem-access 1' command is executed.
+19:23:07 INFO  : Context for 'APU' is selected.
+19:23:08 INFO  : 'ps7_init' command is executed.
+19:23:08 INFO  : 'ps7_post_config' command is executed.
+19:23:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:23:08 INFO  : The application 'E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/qxy_test/Debug/qxy_test.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:23:08 INFO  : 'configparams force-mem-access 0' command is executed.
+19:23:08 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248446130" && level==0} -index 1
+fpga -file E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+loadhw -hw E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+dow E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/qxy_test/Debug/qxy_test.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:23:08 INFO  : Memory regions updated for context APU
+19:23:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:23:08 INFO  : 'con' command is executed.
+19:23:08 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+con
+----------------End of Script----------------
+
+19:23:08 INFO  : Launch script is exported to file 'E:\FPGA_Test\3_Study\mz7035_vdma_ov7725_20200320\project_1\project_1.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_qxy_test.elf_on_local.tcl'
+19:25:53 INFO  : Disconnected from the channel tcfchan#1.
+19:25:54 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:25:54 INFO  : Jtag cable 'Digilent Zed 210248446130' is selected.
+19:25:54 INFO  : 'jtag frequency' command is executed.
+19:25:54 INFO  : Sourcing of 'E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:25:54 INFO  : Context for 'APU' is selected.
+19:25:54 INFO  : System reset is completed.
+19:25:57 INFO  : 'after 3000' command is executed.
+19:25:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248446130" && level==0} -index 1' command is executed.
+19:26:00 INFO  : FPGA configured successfully with bitstream "E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+19:26:00 INFO  : Context for 'APU' is selected.
+19:26:02 INFO  : Hardware design information is loaded from 'E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+19:26:02 INFO  : 'configparams force-mem-access 1' command is executed.
+19:26:02 INFO  : Context for 'APU' is selected.
+19:26:03 INFO  : 'ps7_init' command is executed.
+19:26:03 INFO  : 'ps7_post_config' command is executed.
+19:26:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:26:03 INFO  : The application 'E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/qxy_test/Debug/qxy_test.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:26:03 INFO  : 'configparams force-mem-access 0' command is executed.
+19:26:03 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248446130" && level==0} -index 1
+fpga -file E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+loadhw -hw E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+dow E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/qxy_test/Debug/qxy_test.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:26:03 INFO  : Memory regions updated for context APU
+19:26:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:26:03 INFO  : 'con' command is executed.
+19:26:03 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+con
+----------------End of Script----------------
+
+19:26:03 INFO  : Launch script is exported to file 'E:\FPGA_Test\3_Study\mz7035_vdma_ov7725_20200320\project_1\project_1.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_qxy_test.elf_on_local.tcl'
+19:31:15 INFO  : Disconnected from the channel tcfchan#2.
+19:31:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:31:16 INFO  : Jtag cable 'Digilent Zed 210248446130' is selected.
+19:31:16 INFO  : 'jtag frequency' command is executed.
+19:31:16 INFO  : Sourcing of 'E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:31:16 INFO  : Context for 'APU' is selected.
+19:31:16 INFO  : System reset is completed.
+19:31:19 INFO  : 'after 3000' command is executed.
+19:31:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248446130" && level==0} -index 1' command is executed.
+19:31:22 INFO  : FPGA configured successfully with bitstream "E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+19:31:22 INFO  : Context for 'APU' is selected.
+19:31:24 INFO  : Hardware design information is loaded from 'E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+19:31:24 INFO  : 'configparams force-mem-access 1' command is executed.
+19:31:24 INFO  : Context for 'APU' is selected.
+19:31:25 INFO  : 'ps7_init' command is executed.
+19:31:25 INFO  : 'ps7_post_config' command is executed.
+19:31:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:31:25 INFO  : The application 'E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/qxy_test/Debug/qxy_test.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:31:25 INFO  : 'configparams force-mem-access 0' command is executed.
+19:31:25 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248446130" && level==0} -index 1
+fpga -file E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+loadhw -hw E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+dow E:/FPGA_Test/3_Study/mz7035_vdma_ov7725_20200320/project_1/project_1.sdk/qxy_test/Debug/qxy_test.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:31:25 INFO  : Memory regions updated for context APU
+19:31:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:31:25 INFO  : 'con' command is executed.
+19:31:25 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248446130"} -index 0
+con
+----------------End of Script----------------
+
+19:31:25 INFO  : Launch script is exported to file 'E:\FPGA_Test\3_Study\mz7035_vdma_ov7725_20200320\project_1\project_1.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_qxy_test.elf_on_local.tcl'
+19:46:32 INFO  : Disconnected from the channel tcfchan#3.

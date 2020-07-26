@@ -1,0 +1,4 @@
+NumberHits:0
+Timestamp: Fri Mar 20 10:42:14 UTC 2020
+VLNV: xilinx.com:user:hdmi_display:1.0
+SynthRuntime: 148

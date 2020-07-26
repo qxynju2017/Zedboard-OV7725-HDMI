@@ -1,0 +1,20 @@
+19:21:34 **** Incremental Build of configuration Debug for project qxy_test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+19:22:58 **** Incremental Build of configuration Debug for project qxy_test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+19:25:49 **** Incremental Build of configuration Debug for project qxy_test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+19:31:11 **** Incremental Build of configuration Debug for project qxy_test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
